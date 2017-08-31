@@ -2,4 +2,4 @@
 what do you meme
 
 This is a game
-Did you ever hear the Tagedy of Darth Plagueis the Wise?
+Did you ever hear the Tragedy of Darth Plagueis the Wise?
