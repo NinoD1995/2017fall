@@ -12,7 +12,7 @@ Web Programming
   Assembly Language, C, some Python, and some HTML/CSS. Some programs that I use are Eclipse, 
   Netbeans (for GUIs), and Codeblocks (for C/C++).
   
-	After completing this class, I hope to be able to build complex and beautiful websites. 
+After completing this class, I hope to be able to build complex and beautiful websites. 
   My dad has been telling me to redo the website for our restaurant so maybe after this class 
   I’d be able to do a complete overhaul and make it look pristine. And hopefully I could build 
   all of the back-end stuff and make it work perfectly. Everything I will learn in this class will be 
