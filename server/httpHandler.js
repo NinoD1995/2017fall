@@ -1,5 +1,6 @@
 exports.main = function(req, res){
-    res.write("Hello World, you requested ");
+    const path = req.url;
+    res.write("Hello World, you requested " + path);
     res.end();
     next();
 };

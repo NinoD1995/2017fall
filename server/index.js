@@ -3,8 +3,8 @@ const handler = require("./httpHandler.js");
 
 const server = http();
 
-server.use("/json", function(req, res, next){
-    res.send({ happy: "Yom Kippur"})
+server.use("/", function(req, res, next){
+    res.send({happy: "Yom Kippur"})
     next();
 });
 
