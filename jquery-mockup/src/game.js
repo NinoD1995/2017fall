@@ -9,7 +9,10 @@ var Quote = /** @class */ (function () {
 exports.Quote = Quote;
 var Player = /** @class */ (function () {
     function Player() {
-        this.quotes = [];
+        this.quotes = [
+            { text: "hopefully" },
+            { text: "these show" }
+        ];
         this.score = 0;
     }
     Player.prototype.drawQuotes = function () {
@@ -39,8 +42,9 @@ var Game = /** @class */ (function () {
     function Game() {
         this.players = [];
         this.pictures = [
-            "https://media4.s-nbcnews.com/j/newscms/2017_07/1903576/170215-chicken-farm-mn-1630_c65475166849611a3c0207983317eab4.nbcnews-ux-2880-1000.jpg",
-            "jquery-mockup/do it.jpg"
+            "done_that_yourself.jpg",
+            "do_it.jpg",
+            "welcome_surprise.jpg"
         ];
         this.quotes = [
             { text: "test 1" },

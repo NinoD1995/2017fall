@@ -5,13 +5,13 @@ export class Quote {
 }
 
 export class Player {
-    name: string = "Anthony DiNardi";
+    name: string = "Anthony DiNardi"
     quotes: Quote[] = [];
     score: number = 0;
 
     drawQuotes() {
         $("#my-quotes").html(
-            this.quotes.map(x=> `<li class="list-group-item">${x.text}</li>`).join("")
+            this.quotes.map(x=> `<li class="list-group-item">${x.text}</li>` ).join("")
         );
     }
 }
@@ -42,8 +42,9 @@ export class Room {
 export class Game {
     players: Player[] = [];
     pictures: string[] = [
-        "https://media4.s-nbcnews.com/j/newscms/2017_07/1903576/170215-chicken-farm-mn-1630_c65475166849611a3c0207983317eab4.nbcnews-ux-2880-1000.jpg",
-        "do it.jpg"
+        "done_that_yourself.jpg",
+        "do_it.jpg",
+        "welcome_surprise.jpg"
     ];
     quotes: Quote[] = [
         { text: "test 1"},
