@@ -1,10 +1,24 @@
-module.exports = {
+let iCurrentPicture = 0;
+let iCurrentQuote;
+
+const game = {
     pictures: [
-        "https://media4.s-nbcnews.com/j/newscms/2017_07/1903576/170215-chicken-farm-mn-1630_c65475166849611a3c0207983317eab4.nbcnews-ux-2880-1000.jpg",
-        "./jquery-mockup/do it.jpg"
+        "do_it.jpg",
+        "done_that_yourself.jpg",
+        "welcome_surprise.jpg",
+        "rank_of_master.jpg",
+        "chosen_one.gif"
     ],
+    getNextPicture: ()=> game.pictures[iCurrentPicture++],
     quotes: [
-        { text: "test 1"},
-        { text: "test 2"}
-    ]
+        { text: "When you complain about homework due the next day but you've been putting it off for 2 weeks."},
+        { text: "When you see a crunchy leaf on the ground."},
+        { text: "When your friend punches you in the face."}
+    ],
+    room: {
+        picture: "",
+        quotes: []
+    }
 }
+
+module.exports = game;

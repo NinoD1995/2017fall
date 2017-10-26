@@ -37,19 +37,38 @@ export class Room {
             this.players.map(x=> `<li class="list-group-item">${x.name}</li>`).join("")
         );
     }
+
+    update(){
+        $.get("/game/room/picture").done( data =>{
+            this.picture = data;
+            this.drawPicture();
+        });
+        $.getJSON("/game/room/quotes").done( data =>{
+            this.quotes = data;
+            this.drawQuotes();
+        });
+    }
+
+    init(){
+        setInterval(()=> this.update(), 1000)
+    }
 }
 
 export class Game {
     players: Player[] = [];
-    pictures: string[] = [
-        "done_that_yourself.jpg",
-        "do_it.jpg",
-        "welcome_surprise.jpg"
-    ];
-    quotes: Quote[] = [
-        { text: "test 1"},
-        { text: "test 2"}
-    ];
+    pictures: string[] = [];
+    quotes: Quote[] = [];
+
+    init() {
+        return $.when(
+            $.getJSON("/game/pictures").done( data =>{
+                this.pictures = data;
+            }),
+            $.getJSON("/game/quotes").done( data =>{
+                this.quotes = data;
+            })
+        );
+    }
 }
 
 //Controller
@@ -58,18 +77,15 @@ const game = new Game();
 const room = new Room();
 const me = new Player();
 
-var i = 0;
-room.picture = game.pictures[i];
-room.drawPicture();
-room.drawQuotes();
-room.drawPlayers();
-
-me.quotes = game.quotes;
-me.drawQuotes();
+room.init();
+game.init().done(()=>{
+    room.drawPlayers();
+    
+    me.quotes = game.quotes;
+    me.drawQuotes();
+});
 
 $("#cmd-flip").click(function(e) {
     e.preventDefault();
-    i++;
-    room.picture = game.pictures[i];
-    room.drawPicture();
+    $.post("/game/room/picture")
 })
