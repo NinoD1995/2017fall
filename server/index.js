@@ -1,9 +1,11 @@
 const express = require("express");
 const handler = require("./httpHandler");
 const gameController = require("./gameController");
+const bodyParcer = require("body-parser");
 
 const server = express();
 
+server.use(bodyParcer.urlencoded());
 server.use("/client", express.static("./jquery-mockup"))
 server.use("/old", handler.main);
 server.use("/game", gameController.router);

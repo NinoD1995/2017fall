@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass jquery-mockup/src --output jquery-mockup/dist",
-    "webpack:main": "webpack jquery-mockup/src/main.js jquery-mockup/dist/bundle.js --optimize-minimize"
+    "sass": "node-sass jquery-mockup/src --output jquery-mockup/dist --watch",
+    "webpack:main": "webpack jquery-mockup/src/main.js jquery-mockup/dist/bundle.js --optimize-minimize --watch",
+    "server": "nodemon --watch server server/index.js"
   },
   "repository": {
     "type": "git",
@@ -14,6 +15,7 @@
   },
   "dependencies": {
     "express": "^4.15.4",
+    "body-parser": "^1.18.2",
     "jquery": "^3.2.1",
     "bootstrap-4": "^4.0.0",
     "popper.js": "^1.12.5"
@@ -30,7 +32,8 @@
     "style-loader": "^0.18.2",
     "ts-loader": "^2.3.7",
     "typescript": "^2.5.3",
-    "webpack": "^3.7.1"
+    "webpack": "^3.7.1",
+    "nodemon": "^1.12.1"
   },
   "bugs": {
     "url": "https://github.com/jewpaltz/2017fall/issues"
