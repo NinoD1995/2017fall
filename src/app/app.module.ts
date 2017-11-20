@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { HttpModule } from "@angular/http";
+import { FormsModule } from "@angular/forms";
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,11 +24,11 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpModule, FormsModule,
     RouterModule.forRoot([
       { path: "play", component: PlayComponent},
       { path: "home", component: IndexComponent},
-      { path: "login", component: IndexComponent },
+      { path: "login", component: LoginComponent },
       { path: "", pathMatch: "full", redirectTo: "/home" }
     ])
   ],

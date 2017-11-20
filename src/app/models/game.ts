@@ -3,7 +3,7 @@ export class Quote {
 }
 
 export class Player {
-    name: string = "Anthony DiNardi"
+    name: string = null;
     quotes: Quote[] = [];
     score: number = 0;
 }
