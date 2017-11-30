@@ -6,7 +6,10 @@
                     Players
                 </div>
                 <ul class="list-group list-group-flush" id="players">
-                    <li *ngFor="let x of room.players" class="list-group-item">{{x.name}}</li>
+                    <li *ngFor="let x of room.players; index as i" class="list-group-item d-flex justify-content-between align-items-center">
+                        {{x.name}}
+                        <span  *ngIf="i == room.dealer" class="badge badge-info">dealer</span>
+                    </li>
                 </ul>
             </div>
             
@@ -17,6 +20,7 @@
                 <ul class="list-group list-group-flush" id="my-quotes">
                     <li *ngFor="let x of me.quotes; index as i" 
                         class="list-group-item"
+                        [ngClass]="{disabled: me.id == room.dealer || myQuote()}"
                         (click)="submitQuote($event, x, i)">
                         {{x.text}}
                     </li>
@@ -26,7 +30,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary btn-lg" (click)="flipPicture($event)">Flip a new card</button>
+                    <button *ngIf="me.id == room.dealer && chosenQuote()" type="button" class="btn btn-primary btn-lg" (click)="flipPicture($event)">Flip a new card</button>
                     <img class="card-img-top" [src]="room.picture" id="picture">
 
                     <div class="card" >
@@ -36,9 +40,11 @@
                         <ul class="list-group list-group-flush" id="played-quotes">
                             <li *ngFor="let x of room.quotes; index as i" 
                                 class="list-group-item d-flex justify-content-between align-items-center"
-                                [ngClass]="{'list-group-item-success': room.chosenQuote == i}">
+                                [ngClass]="{'list-group-item-success': x.chosen}">
                                 {{x.text}}
-                                <a href="#" class="btn btn-sm btn-primary"  [ngClass]="{'disabled': room.chosenQuote != null}" (click)="chooseQuote($event, i)">Choose</a>
+                                <a href="#" class="btn btn-sm btn-primary" *ngIf="!chosenQuote() && me.id == room.dealer" (click)="chooseQuote($event, i)">Choose</a>
+                                <span  *ngIf="!chosenQuote() && me.id != room.dealer" class="badge badge-secondary">hidden</span>
+                                <span  *ngIf="chosenQuote()" class="badge badge-info">{{x.player}}</span>
                             </li>
                         </ul>
                     </div>

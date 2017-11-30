@@ -11,7 +11,7 @@ module.exports = [
     { text: "When someone spoils The Last Jedi for you"},
     { text: "When it has been 12 hours and your stupid code won't compile"},
     { text: "When you're a vegan and you haven't told anyone about it for 5 minutes"},
-    { text: "test"},
+    { text: "When somebody swipes the last Coral Blue Galaxy S8 on Black Friday"},
     { text: "test"},
     { text: "test"},
     { text: "test"}
