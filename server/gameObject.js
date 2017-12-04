@@ -9,7 +9,8 @@ const game = {
         "/assets/img/done_that_yourself.jpg",
         "/assets/img/welcome_surprise.jpg",
         "/assets/img/rank_of_master.jpg",
-        "/assets/img/chosen_one.gif"
+        "/assets/img/chosen_one.gif",
+        "/assets/img/where_the_fun_begins.gif"
     ],
     getNextPicture: ()=> game.pictures[iCurrentPicture++],
     quotes: quotes,
